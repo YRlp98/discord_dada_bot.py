@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-token = 'Njg5NTM1MjAwNzQwMjQ1NjIy.XnJcYQ.jRyMZOk1nogZf6ckqRieGsN0OFg'
+token = '/* Add your toekn here */'
 client = commands.Bot(command_prefix='!')
 
 
