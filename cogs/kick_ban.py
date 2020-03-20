@@ -36,19 +36,20 @@ class KickBan(commands.Cog):
     # Unban
     @commands.command()
     async def unban(self, ctx, *, member):
-        banned_users = await ctx.guild.bans()
-        member_name, member_discriminator = member.split('#')
 
-        for ban_entry in banned_users:
-            user = ban_entry.user
+        if is_admin(ctx.author):
+            banned_users = await ctx.guild.bans()
+            member_name, member_discriminator = member.split('#')
 
-            if is_admin(ctx.author):
+            for ban_entry in banned_users:
+                user = ban_entry.user
+
                 if (user.name, user.discriminator) == (member_name, member_discriminator):
                     await ctx.guild.unban(user)
                     await ctx.send(f'dada {user.mention} unban shod!')
                 return
-            else:
-                await ctx.send(f'gi nakhor dada!')
+        else:
+            await ctx.send(f'gi nakhor dada!')
 
 
 def setup(client):
