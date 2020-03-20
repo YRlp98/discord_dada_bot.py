@@ -2,16 +2,13 @@ import discord
 import os
 import random
 from discord.ext import commands
+from dotenv import load_dotenv
 
-token = 'Njg5NTM1MjAwNzQwMjQ1NjIy.XnTT0w.kxJcKEtBsMGh_IhCofISG6SC334'
+load_dotenv()
+
+token = os.getenv("DADA_TOKEN")
 client = commands.Bot(command_prefix='~')
 
-
-# !the bot commands
-# show user ping
-@client.command(aliases=['Ping'])
-async def ping(ctx):
-    await ctx.send(f':stopwatch: {round(client.latency * 1000)}ms')
 
 
 # !Response with a random awnseer
